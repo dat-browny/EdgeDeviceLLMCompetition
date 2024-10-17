@@ -24,5 +24,5 @@ zh_cpt_data = zh_dataset.select([i for i in range(num_pruning, len(zh_dataset))]
 pruning_data = concatenate_datasets([en_pruning_data, zh_dataset]).shuffle(seed=42)
 cpt_data = concatenate_datasets([en_cpt_data, zh_cpt_data]).shuffle(seed=42)
 
-pruning_data.save_to_disk("c4/pruning_raw", num_proc=128)
+pruning_data.to_json("c4/pruning_raw.jsonl", num_proc=128)
 cpt_data.save_to_disk("c4/cpt", num_proc=128)
